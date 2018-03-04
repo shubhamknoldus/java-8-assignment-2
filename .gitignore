@@ -3,6 +3,7 @@
 *.conf
 *.md
 *.png
+*.properties
 TODO
 # sbt specific
 .cache
