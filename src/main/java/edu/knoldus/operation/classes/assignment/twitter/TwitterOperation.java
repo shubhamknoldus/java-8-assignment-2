@@ -15,8 +15,9 @@ public class TwitterOperation {
     private String hashTag;
     private Twitter twitter = new TwitterFactory().getInstance();
     private Query query;
+
     public TwitterOperation(String hashTag) {
-        this.hashTag ="#" + hashTag;
+        this.hashTag = "#" + hashTag;
         Properties prop = new Properties();
         try {
             InputStream input = new FileInputStream("/home/knoldus/Desktop/Assignments/java8assignment2/src/main/resources/config.properties");
@@ -32,26 +33,24 @@ public class TwitterOperation {
     }
 
     /**
-     *
      * @return number of tweets in form of Completable future formatted in a string
      */
     public CompletableFuture<String> getNumberOfTweets() {
-        return CompletableFuture.supplyAsync(() ->{
+        return CompletableFuture.supplyAsync(() -> {
             Integer noOfTweets = 0;
             try {
                 noOfTweets = twitter.search(query).getTweets().size();
             } catch (TwitterException e) {
                 e.printStackTrace();
             }
-           return noOfTweets;
+            return noOfTweets;
         }).thenApply((Integer noTweets) -> noTweets + " is the number of tweets for hashTag " + this.hashTag);
     }
 
     /**
-     *
      * @return average tweets per day in form of Completable future formatted in a string
      */
-    public CompletableFuture<String> averageTweetsPerDay(){
+    public CompletableFuture<String> averageTweetsPerDay() {
         return CompletableFuture.supplyAsync(() -> {
             Double avreageTweets = 0.0;
             try {
@@ -64,19 +63,18 @@ public class TwitterOperation {
     }
 
     /**
-     *
      * @return average likes and retweets in form of Completable future formatted in a string
      */
-    public CompletableFuture<String> averageLikesAndReTweets(){
+    public CompletableFuture<String> averageLikesAndReTweets() {
         return CompletableFuture.supplyAsync(() -> {
             String result = null;
             try {
                 List<Status> list = twitter.search(query).getTweets();
                 Double averageLikes = list.parallelStream()
-                        .map(tweet -> tweet.getFavoriteCount()).reduce((a,b) -> a + b).get() / list.size() + 0.0;
+                        .map(Status::getFavoriteCount).reduce((a, b) -> a + b).get() / list.size() + 0.0;
                 Double averageRetweetts = list.parallelStream()
-                        .map(tweet -> tweet.getRetweetCount()).reduce((a,b) -> a + b).get() / list.size() + 0.0;
-                result = "average retweets are "+averageRetweetts+" and average likes are "+averageLikes;
+                        .map(Status::getRetweetCount).reduce((a, b) -> a + b).get() / list.size() + 0.0;
+                result = "average retweets are " + averageRetweetts + " and average likes are " + averageLikes;
             } catch (TwitterException e) {
                 e.printStackTrace();
             }

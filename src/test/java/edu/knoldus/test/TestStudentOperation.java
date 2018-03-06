@@ -14,7 +14,6 @@ import java.util.Optional;
 import static org.junit.Assert.assertEquals;
 
 public class TestStudentOperation {
-/*
     private static StudentOperations studentOperations;
     private static List<ClassRoom> classRooms;
 
@@ -60,18 +59,32 @@ public class TestStudentOperation {
     }
 
     @Test
-    public void testStudentHasNoSubjects(){
+    public void testStudentHasNoSubjects() {
         List<Student> actual = studentOperations.studentsHasNoSubjects(classRooms);
         List<Student> expected = new ArrayList<>();
         expected.add(new Student("Ram", 123, Optional.empty()));
         assertEquals("Testing the students associated with a room that have no subjects associated.", actual, expected);
-
     }
 
     @Test
-*/
+    public void testfindSubjectByClassId() {
+        List<List<String>> actual = studentOperations.findSubjectByClassId(9, classRooms);
+        List<List<String>> expected = new ArrayList<>();
+        expected.add(Arrays.asList("Maths", "Science"));
+        expected.add(Arrays.asList("Maths", "Science", "English"));
+        assertEquals("Testing the students associated with a room that have no subjects associated.", actual, expected);
+    }
 
-
+    @Test
+    public void testhelloStudent() {
+        List<List<String>> actual = studentOperations.helloStudent(classRooms);
+        List<List<String>> expected = new ArrayList<>();
+        expected.add(Arrays.asList("\nhello Ram", "\nhello Shyam"));
+        expected.add(Arrays.asList("\nhello Shyam", "\nhello John"));
+        expected.add(Arrays.asList("\nhello John", "\nhello David"));
+        expected.add(Arrays.asList("\nhello David", "\nhello Shyam"));
+        assertEquals("Testing the students associated with a room that have no subjects associated.", actual, expected);
+    }
 
 
 }

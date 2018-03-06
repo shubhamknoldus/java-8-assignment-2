@@ -9,6 +9,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class MainApplicationClassRoom {
+    public MainApplicationClassRoom() {
+    }
+
     public static void main(String[] args) {
         List<String> subjectList1 = Arrays.asList("Maths", "Science", "English");
         List<String> subjectList2 = Arrays.asList("Maths", "Science", "English", "Geography");
@@ -42,13 +45,14 @@ public class MainApplicationClassRoom {
                         Arrays.asList(
                                 students.get(3),
                                 students.get(1)
+
                         )
                 ))
 
         );
-        StudentOperations so = new StudentOperations();
-        System.out.println(so.studentsHasNoSubjects(classRooms));
-//        System.out.println(so.findSubjectByClassId(9, classRooms));
-        System.out.println(so.helloStudent(classRooms));
+        StudentOperations studentOperations = new StudentOperations();
+        System.out.println(studentOperations.studentsHasNoSubjects(classRooms));
+        System.out.println(studentOperations.findSubjectByClassId(9, classRooms));
+        System.out.println(studentOperations.helloStudent(classRooms));
     }
 }

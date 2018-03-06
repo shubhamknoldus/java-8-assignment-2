@@ -10,7 +10,6 @@ public class StudentOperations {
     Predicate<Student> studentWithNoSubject = student -> !(student.subjectList.isPresent());
 
     /**
-     *
      * @param classRoomsList
      * @return returns all those students who are not having any subjects
      */
@@ -22,18 +21,16 @@ public class StudentOperations {
 
     }
 
-//    public List<String> findSubjectByClassId(Integer id, List<ClassRoom> classRooms) {
-//        return classRooms.stream()
-//                .filter(classRoom -> classRoom.roomId.equals(id))
-//                .filter(classRoom -> classRoom.studentList.isPresent())
-//                .map(classRoom -> classRoom.studentList.get().parallelStream()
-//                .filter(student -> student.subjectList.isPresent()).collect(Collectors.toList())
-//                .stream().flatMap(student -> student.subjectList.get())).collect(Collectors.toList());
-//
-//    }
+    public List<List<String>> findSubjectByClassId(Integer id, List<ClassRoom> classRooms) {
+        return classRooms.stream()
+                .filter(classRoom -> classRoom.roomId.equals(id) && classRoom.studentList.isPresent())
+                .map(classRoom -> classRoom.studentList.get().parallelStream()
+                        .filter(student -> student.subjectList.isPresent()).collect(Collectors.toList())
+                        .stream().map(student -> student.subjectList.get())).flatMap(x -> x).collect(Collectors.toList());
+
+    }
 
     /**
-     *
      * @param classRooms
      * @return prints hello to all the students of a class room
      */
