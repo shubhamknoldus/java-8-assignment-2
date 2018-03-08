@@ -105,6 +105,7 @@
                     <failOnViolation>false</failOnViolation>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
                     <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+                    <configLocation>checkstyle-checker.xml</configLocation>
                     <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
                     <outputFile>${project.basedir}/target/checkstyle-output.xml</outputFile>
                 </configuration>

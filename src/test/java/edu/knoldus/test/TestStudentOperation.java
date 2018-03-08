@@ -75,8 +75,8 @@ public class TestStudentOperation {
 
     @Test
     final public void testStudentHasNoSubjects() {
-        List<Student> actual = studentOperations.
-                studentsHasNoSubjects(classRooms);
+        List<Student> actual = studentOperations
+                .studentsHasNoSubjects(classRooms);
         List<Student> expected = new ArrayList<>();
         expected.add(new Student("Ram",
                 123,
@@ -116,7 +116,9 @@ public class TestStudentOperation {
         assertEquals("Testing the students associated with a "
                         + "room that have no subjects associated.",
                 actual,
-                expected);
+                expected
+
+        );
     }
 
 

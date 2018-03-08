@@ -27,12 +27,16 @@ final public class Student {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Student)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Student)) {
+            return false;
+        }
         Student student = (Student) o;
-        return Objects.equals(name, student.name) &&
-                Objects.equals(rollNo, student.rollNo) &&
-                Objects.equals(subjectList, student.subjectList);
+        return Objects.equals(name, student.name)
+                && Objects.equals(rollNo, student.rollNo)
+                && Objects.equals(subjectList, student.subjectList);
     }
 
 }

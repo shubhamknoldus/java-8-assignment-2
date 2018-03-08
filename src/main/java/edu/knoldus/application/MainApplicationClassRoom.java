@@ -61,8 +61,8 @@ public class MainApplicationClassRoom {
         );
         StudentOperations studentOperations = new StudentOperations();
         System.out.println(studentOperations.studentsHasNoSubjects(classRooms));
-        System.out.println(studentOperations.
-                findSubjectByClassId(
+        System.out.println(studentOperations
+                .findSubjectByClassId(
                         9,
                         classRooms
                 )

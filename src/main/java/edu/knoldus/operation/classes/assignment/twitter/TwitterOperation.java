@@ -46,7 +46,7 @@ final public class TwitterOperation {
     }
 
     /**
-     * @return number of tweets in form of Completable future formatted in a string
+     * @return number of tweets in form of Completable future formatted in a string.
      */
     public CompletableFuture<String> getNumberOfTweets() {
         return CompletableFuture.supplyAsync(() -> {
@@ -65,7 +65,7 @@ final public class TwitterOperation {
     }
 
     /**
-     * @return average tweets per day in form of Completable future formatted in a string
+     * @return average tweets per day in form of Completable future formatted in a string.
      */
     public CompletableFuture<String> averageTweetsPerDay() {
         return CompletableFuture.supplyAsync(() -> {
@@ -85,7 +85,7 @@ final public class TwitterOperation {
     }
 
     /**
-     * @return average likes and retweets in form of Completable future formatted in a string
+     * @return average likes and retweets in form of Completable future formatted in a string.
      */
     public CompletableFuture<String> averageLikesAndReTweets() {
         return CompletableFuture.supplyAsync(() -> {
