@@ -9,7 +9,7 @@ public class MainApplicationTwitter {
     public MainApplicationTwitter() {
     }
 
-    /*public static void main(final String[] args)
+    public static void main(final String[] args)
             throws InterruptedException, ExecutionException {
         int sleepThread = 10000;
         TwitterOperation obj = new TwitterOperation("virat");
@@ -21,5 +21,5 @@ public class MainApplicationTwitter {
         System.out.println(numberOfTweets.get());
         System.out.println(averageTweetsPerDay.get());
         System.out.println(averageTweetsAndLikePerTweet.get());
-    }*/
+    }
 }

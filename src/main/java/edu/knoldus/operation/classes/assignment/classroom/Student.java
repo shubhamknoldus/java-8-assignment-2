@@ -4,20 +4,24 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public class Student {
+final public class Student {
     public String name;
     public Integer rollNo;
     public Optional<List<String>> subjectList;
 
 
-    public Student(String name, Integer rollNo, Optional<List<String>> subjectList) {
-        this.name = name;
-        this.rollNo = rollNo;
-        this.subjectList = subjectList;
+    public Student(String studentName,
+                   Integer enrollNum,
+                   Optional<List<String>> listOfSubject
+    ) {
+        this.name = studentName;
+        this.rollNo = enrollNum;
+        this.subjectList = listOfSubject;
     }
 
     @Override
     public String toString() {
+
         return this.name + " " + this.rollNo + " " + this.subjectList;
     }
 

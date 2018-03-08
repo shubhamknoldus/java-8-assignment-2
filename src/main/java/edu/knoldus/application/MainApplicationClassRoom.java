@@ -13,8 +13,17 @@ public class MainApplicationClassRoom {
     }
 
     public static void main(String[] args) {
-        List<String> subjectList1 = Arrays.asList("Maths", "Science", "English");
-        List<String> subjectList2 = Arrays.asList("Maths", "Science", "English", "Geography");
+        List<String> subjectList1 = Arrays.asList(
+                "Maths",
+                "Science",
+                "English"
+        );
+        List<String> subjectList2 = Arrays.asList(
+                "Maths",
+                "Science",
+                "English",
+                "Geography"
+        );
         List<String> subjectList3 = Arrays.asList("Maths", "Science");
         List<Student> students = Arrays.asList(
                 new Student("Ram", 123, Optional.empty()),
@@ -52,7 +61,12 @@ public class MainApplicationClassRoom {
         );
         StudentOperations studentOperations = new StudentOperations();
         System.out.println(studentOperations.studentsHasNoSubjects(classRooms));
-        System.out.println(studentOperations.findSubjectByClassId(9, classRooms));
+        System.out.println(studentOperations.
+                findSubjectByClassId(
+                        9,
+                        classRooms
+                )
+        );
         System.out.println(studentOperations.helloStudent(classRooms));
     }
 }

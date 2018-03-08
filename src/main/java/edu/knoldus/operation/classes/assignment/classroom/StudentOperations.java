@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class StudentOperations {
+final public class StudentOperations {
 
 
     Predicate<Student> studentWithNoSubject = student -> !(student.subjectList.isPresent());
@@ -16,7 +16,8 @@ public class StudentOperations {
     public List<Student> studentsHasNoSubjects(List<ClassRoom> classRoomsList) {
 
         return classRoomsList.stream()
-                .filter(classRoom -> classRoom.studentList.isPresent()).flatMap(classRoomWithStudent -> classRoomWithStudent.studentList.get().stream()
+                .filter(classRoom -> classRoom.studentList.isPresent())
+                .flatMap(classRoomWithStudent -> classRoomWithStudent.studentList.get().stream()
                         .filter(studentWithNoSubject)).collect(Collectors.toList());
 
     }
